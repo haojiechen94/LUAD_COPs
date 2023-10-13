@@ -4,4 +4,4 @@
 Deconvolution is applied to quantify the cellular composition in each spot and then unsupervised clustering is performed to integrate spots from different slides and identify cellular organization patterns (COPs), COPs are visualized in two dimensional UMAP. Finally, COPs are mapping into the pathologically annotated areas in HE images, by this mean to link the COPs to spatial structures. TAT, tumor adjacent tissues, TLSs, tertiary lymphoid structures, LAs, lymphoid aggregates.
 
 
-Data been deposited in Zenodo (https://zenodo.org/record/8417887).
+Processed Data have been deposited in Zenodo (https://zenodo.org/record/8417887).
