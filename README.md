@@ -6,7 +6,7 @@ Deconvolution is applied to quantify the cellular composition in each spot and t
 
 Processed Data have been deposited in Zenodo (https://zenodo.org/record/8417887).
 
-We are providing codes to reproduce our analysis results and tools for spatial trasncritomic analysis.
+We are providing codes to reproduce our analysis results and tools for spatial transcriptomic analysis.
 
 1. Identifyiing_cellular_organization_patterns_by_integratiing_STs_and_scRNA_seq.R
 2. Infering_the_composition_of_STs_spots_using_scRNA_seq_characterized_immune_cells.R
