@@ -4,7 +4,7 @@
 
 """
 python plot_spots_on_HE.py --HE_image=HE_image_path --tissue_position_list=tissue_position_list_csv_file 
-                           --spots=spots_file
+                           --spots=spots_file [--scale_factor=<float>]
 
 
 --HE_image=<str>                    HE image in PNG format.
@@ -12,6 +12,9 @@ python plot_spots_on_HE.py --HE_image=HE_image_path --tissue_position_list=tissu
 --tissue_position_list=<str>        Tissue position list in CSV format.
 
 --spots=<str>                       Selected spot list genereated from select_spot_on_HE.py tool (TXT format).
+
+[--scale_factor=<float>]            Scale factor for HE image.
+                                    Default: 1.0
 
 --help/-h                           print this page.
 
@@ -28,12 +31,12 @@ from getopt import getopt
 
 
 if __name__ == '__main__':
-
+    scale_factor=1.0
     HE_image=''
     tissue_position_list=''
     spots=''
     try:
-        opts,args=getopt(argv[1:],'h',['HE_image=','tissue_position_list=','spots=','help'])
+        opts,args=getopt(argv[1:],'h',['HE_image=','tissue_position_list=','scale_factor=','spots=','help'])
         for i,j in opts:   
             if i=="-h" or i=="--help":
                 stdout.write(__doc__)
@@ -43,7 +46,9 @@ if __name__ == '__main__':
             elif i=='--spots':
                 spots=j
             elif i=='--tissue_position_list':
-                tissue_position_list=j               
+                tissue_position_list=j        
+            elif i=='--scale_factor':
+                scale_factor=float(j)                       
             else:
                 raise Exception("Internal errors occur when parsing command line arguments.")
     except Exception as e:
@@ -72,6 +77,8 @@ if __name__ == '__main__':
                                             'array_position_x','array_position_y',
                                             'image_pixel_position_x',
                                             'image_pixel_position_y'])
+    tissue_positions_list_df['image_pixel_position_x']=[i*scale_factor for i in tissue_positions_list_df['image_pixel_position_x']]
+    tissue_positions_list_df['image_pixel_position_y']=[i*scale_factor for i in tissue_positions_list_df['image_pixel_position_y']]    
     grid_x=[]    
     grid_y=[]                                    
     for i in selected_spots:

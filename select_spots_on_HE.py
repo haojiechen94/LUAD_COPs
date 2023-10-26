@@ -4,12 +4,15 @@
 
 """
 python select_spots_on_HE.py --HE_image=HE_image_path --tissue_position_list=tissue_position_list_csv_file 
-                             [--outdir=output_directory]
+                             [--scale_factor=<float>] [--outdir=output_directory]
 
 
 --HE_image=<str>                    HE image in PNG format.
 
 --tissue_position_list=<str>        Tissue position list in CSV format.
+
+[--scale_factor=<float>]            Scale factor for HE image.
+                                    Default: 1.0
 
 [--outdir=<str>]                    Output directory for the processed result.
                                     Default: current directory
@@ -30,7 +33,7 @@ from sys import argv, stderr, stdout
 from getopt import getopt
 import time
 
-selected_spots=[]
+
 out_dir=False
 
 class SelectFromCollection:
@@ -68,15 +71,19 @@ class SelectFromCollection:
 
 def toggle_selector(event):
     if event.key in ['A', 'a']:
-        print('\nSelected points:')
+        selected_spots=[]
+        print('\nSelected points:...')
+        print(len(selector.ind))
         for py,px in selector.xys[selector.ind]:
             selected_spots.append(tissue_positions_list_df[
                                            (tissue_positions_list_df['image_pixel_position_x']==px)&
                                            (tissue_positions_list_df['image_pixel_position_y']==py)].index[0])
             #C:\\Users\\chenhaojie\\Desktop\\STs_and_scRNA_seq\\Datasets\\HE_images\\output\\
-            with open('%s\\spots_%s.txt'%(out_dir,time.time()),'w') as outfile:
-                for i in selected_spots:
-                    outfile.write(i+'\n')
+        print(selected_spots[0],'...')
+        with open('%s\\spots_%s.txt'%(out_dir,time.time()),'w') as outfile:
+            for i in selected_spots:
+                outfile.write(i+'\n')
+        selected_spots=[]
 
 
 
@@ -84,8 +91,9 @@ if __name__ == '__main__':
 
     HE_image=''
     tissue_position_list=''
+    scale_factor=1.0
     try:
-        opts,args=getopt(argv[1:],'h',['HE_image=','tissue_position_list=','outdir=','help'])
+        opts,args=getopt(argv[1:],'h',['HE_image=','tissue_position_list=','scale_factor=','outdir=','help'])
         for i,j in opts:   
             if i=="-h" or i=="--help":
                 stdout.write(__doc__)
@@ -96,6 +104,8 @@ if __name__ == '__main__':
                 out_dir=j
             elif i=='--tissue_position_list':
                 tissue_position_list=j               
+            elif i=='--scale_factor':
+                scale_factor=float(j)
             else:
                 raise Exception("Internal errors occur when parsing command line arguments.")
     except Exception as e:
@@ -118,6 +128,8 @@ if __name__ == '__main__':
                                             'array_position_x','array_position_y',
                                             'image_pixel_position_x',
                                             'image_pixel_position_y'])
+    tissue_positions_list_df['image_pixel_position_x']=[i*scale_factor for i in tissue_positions_list_df['image_pixel_position_x']]
+    tissue_positions_list_df['image_pixel_position_y']=[i*scale_factor for i in tissue_positions_list_df['image_pixel_position_y']]
     grid_x=[]    
     grid_y=[]                                    
     for i in tissue_positions_list_df.index:
