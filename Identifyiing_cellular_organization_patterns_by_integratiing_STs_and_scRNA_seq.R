@@ -40,7 +40,7 @@ Endothelia.cells<-CreateSeuratObject(counts=Endothelia.norm.counts,min.cells=3,m
 Fibroblast<-CreateSeuratObject(counts=Fibroblast.norm.counts,min.cells=3,min.genes=200,project="Fibroblast")
 Epithelia.cells<-CreateSeuratObject(counts=Epithelia.norm.counts,min.cells=3,min.genes=200,project="Epithelia.cells")
 
-annotation.df<-read.table('/picb/rsgeno/chenhj/scRNA_seq/SPOTlight/Major_cell_types_deconvolution_2023/epithelial_cells_annotations.txt',sep='\t',header=T,stringsAsFactors=F)
+annotation.df<-read.table('../epithelial_cells_annotations.txt',sep='\t',header=T,stringsAsFactors=F)
 
 Epithelia.cells.subset.obj<-subset(Epithelia.cells,cells=row.names(annotation.df))
 
