@@ -78,7 +78,6 @@ def toggle_selector(event):
             selected_spots.append(tissue_positions_list_df[
                                            (tissue_positions_list_df['image_pixel_position_x']==px)&
                                            (tissue_positions_list_df['image_pixel_position_y']==py)].index[0])
-            #C:\\Users\\chenhaojie\\Desktop\\STs_and_scRNA_seq\\Datasets\\HE_images\\output\\
         print(selected_spots[0],'...')
         with open('%s\\spots_%s.txt'%(out_dir,time.time()),'w') as outfile:
             for i in selected_spots:
@@ -118,11 +117,9 @@ if __name__ == '__main__':
 
     fig, axx = plt.subplots()
     fig.set_size_inches((100,100))
-    #'C:\\Users\\chenhaojie\\Desktop\\STs_and_scRNA_seq\\Datasets\\spatial_infos\\P02_JGZ.jpg'
     img=Image.open(HE_image)
     plt.imshow(img)
 
-    #'C:\\Users\\chenhaojie\\Desktop\\STs_and_scRNA_seq\\Datasets\\spatial_infos\\P02_JGZ_tissue_positions_list.csv'
     tissue_positions_list_df=pd.read_csv(tissue_position_list,
                                      names=['under_or_out_of_tissue',
                                             'array_position_x','array_position_y',
