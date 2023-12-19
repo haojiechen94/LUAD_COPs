@@ -1,4 +1,4 @@
-# select_spots_on_HE.py
+# plot_spots_on_HE.py
 # 2023-10-25
 # Haojie Chen
 
