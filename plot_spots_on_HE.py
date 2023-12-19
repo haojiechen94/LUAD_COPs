@@ -67,11 +67,11 @@ if __name__ == '__main__':
     with open(spots) as infile:
         for line in infile:
             selected_spots.append(line.strip())    
-    #'C:\\Users\\chenhaojie\\Desktop\\STs_and_scRNA_seq\\Datasets\\spatial_infos\\P02_JGZ.jpg'
+    #'./P02_JGZ.jpg'
     img=Image.open(HE_image)
     plt.imshow(img)
 
-    #'C:\\Users\\chenhaojie\\Desktop\\STs_and_scRNA_seq\\Datasets\\spatial_infos\\P02_JGZ_tissue_positions_list.csv'
+    #'./P02_JGZ_tissue_positions_list.csv'
     tissue_positions_list_df=pd.read_csv(tissue_position_list,
                                      names=['under_or_out_of_tissue',
                                             'array_position_x','array_position_y',
