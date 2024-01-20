@@ -11,7 +11,7 @@ To quantify the infiltrating level of cell types (immune cell types) in each COP
 
 $$δ_{i}=μ_{observed}-μ_{permuted}^{i}$$
 
-$$relative\ infiltrating\ score=\frac{\sum_{i}δ_{i})/1000}{\sqrt{((δ_{i}-\sum_{i}δ_{i})/1000)^2/1000)}$$
+$$relative\ infiltrating\ score=\frac{\sum_{i}δ_{i})/1000}{1000)}$$
 
 
 Positive scores indicate relative enrichment but negative scores represent relative depletion
