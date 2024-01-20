@@ -9,6 +9,7 @@ Deconvolution is applied to quantify the cellular composition in each spot and t
 ![Neighboring_immune_cell_states](https://github.com/haojiechen94/LUAD_COPs/blob/master/images/quantifying_neighboring_immune_cells_and%20evaluating_local_immune_cell_states.png)
 To quantify the infiltrating level of cell types (immune cell types) in each COPs, for a specific cell type, we first calculated the average proportion value as the observed average. Then we permuted the labels of spots and randomly selected a set of spots that matched the number of spots in the COP, computed the average proportion value as the permuted average, repeated this procedure 1,000 times. The differences between observed average and permuted average were computed and the mean value of the differences scaled by the its standard deviation was taken as the relative infiltrating score for each COP. Specifically, for a certain cell type, let $μ_{observed}$ denotes the average proportion value of this cell type and let $μ_{permuted}^{i}$ denotes the average proportion value in $i^{th}$ permutation. The relative infiltrating score is defined as follow:
 $δ_{i}=μ_{observed}-μ_{permuted}^{i}$
+relative infiltrating score=$((\sum_{i}δ_{i})/1000)/\sqrt{((δ_{i}-\sum_{i}δ_{i})/1000)^2/1000)}$
 
 
 Positive scores indicate relative enrichment but negative scores represent relative depletion
