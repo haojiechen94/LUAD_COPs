@@ -7,6 +7,15 @@ Spatial cellular organization patterns (COPs) in tumor microenvironment influenc
 Deconvolution is applied to quantify the cellular composition in each spot and then unsupervised clustering is performed to integrate spots from different slides and identify cellular organization patterns (COPs), COPs are visualized in two dimensional UMAP. Finally, COPs are mapping into the pathologically annotated areas in HE images, by this mean to link the COPs to spatial structures. TAT, tumor adjacent tissues, TLSs, tertiary lymphoid structures, LAs, lymphoid aggregates.
 
 ![Neighboring_immune_cell_states](https://github.com/haojiechen94/LUAD_COPs/blob/master/images/quantifying_neighboring_immune_cells_and%20evaluating_local_immune_cell_states.png)
+To quantify the infiltrating level of cell types (immune cell types) in each COPs, for a specific cell type, we first calculated the average proportion value as the observed average. Then we permuted the labels of spots and randomly selected a set of spots that matched the number of spots in the COP, computed the average proportion value as the permuted average, repeated this procedure 1,000 times. The differences between observed average and permuted average were computed and the mean value of the differences scaled by the its standard deviation was taken as the relative infiltrating score for each COP. Specifically, for a certain cell type, let μ_observed denotes the average proportion value of this cell type and let μ_permuted^i denotes the average proportion value in i^th permutation. The relative infiltrating score is defined as follow:
+
+
+Positive scores indicate relative enrichment but negative scores represent relative depletion
+
+
+
+
+
 Processed Data have been deposited in Zenodo (https://zenodo.org/record/8417887).
 
 We are providing codes to reproduce our analysis results and tools for spatial transcriptomic analysis.
