@@ -44,9 +44,5 @@ Citation: Haojie Chen et al. 2023. Spatiotemporal Profiling Unveiling the Cellul
      <img width="200"  src="https://clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=n&d=42WqeykSXznN_NSaBlpf6CtSXQxhqmIs6QusUsguFdY" />
    </a>
 </p>
-<p align="center">
-  <a href="#">
-     <img src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fsqjin%2FCellChat&labelColor=%233499cc&countColor=%2370c168" />
-   </a>
-</p>
+
 
