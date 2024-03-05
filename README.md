@@ -35,13 +35,8 @@ We are providing codes to reproduce our analysis results and tools for spatial t
 Citation: Haojie Chen et al. 2023. Spatiotemporal Profiling Unveiling the Cellular Organization Patterns and Local Protumoral Immune Microenvironment Remodeling in Early Lung Adenocarcinoma Progression. bioRxiv. https://doi.org/10.1101/2023.10.29.564580
 
 <p align="center">
-  <img width="700"  src="https://github.com/sqjin/CellChat/blob/master/overview_CellChat.png">
-</p>
-
-
-<p align="center">
-  <a href="https://clustrmaps.com/site/1bpq2">
-     <img width="200"  src="https://clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=n&d=42WqeykSXznN_NSaBlpf6CtSXQxhqmIs6QusUsguFdY" />
+  <a href="#">
+     <img src="https://api.visitorbadge.io/api/visitors?path=https://github.com/haojiechen94/LUAD_COPs" />
    </a>
 </p>
 
