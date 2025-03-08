@@ -1,7 +1,7 @@
-# LUAD_COPs
-## Spatiotemporal Profiling of Lung Adenocarcinoma Unveils the Microscopic Cellular Organization Patterns and Protumoral Immune Microenvironment Remodeling in Early Progression
+# Spatial coupling between malignant cell evolution and local immune microenvironment remodeling during LUAD pathological progression
+## Joint analysis of single-cell and spatial transcriptomic data unveils the spatial coupling of malignant cell evolution and local microenvironment remodeling in early progression of lung adenocarcinoma
 
-Spatial cellular organization patterns (COPs) in tumor microenvironment influence the tumor progression and therapeutic response, however, little is known about the cellular composition and functional potential of these multicellular structures during lung adenocarcinoma progression. Here, we integrate spatial transcriptomics with single cell RNA sequencing to characterize the local tumor and immunological landscape of samples from 8 patients with early-stage lung adenocarcinoma at different pathological stages. We identified ten COPs that show distinct associations with local immune states and clinical outcomes, including survival and therapy response. The local infiltration levels of regulatory and dysfunctional immune cells are increased with pathological progression. Cell-to-cell interactions between malignant cells and tumor microenvironment (TME) cells were involved in protumor immune state remodeling. Finally, we detected a group of malignant cells that were specifically located at the tumor boundary, representing a more aggressive state, were involved in the invasion of invasive adenocarcinoma (IAC). Altogether, these results can improve our understanding of the local microenvironment characteristics that underlie LUAD progression and may facilitate the identification of drug targets to prevent invasive progression and biomarkers for diagnosis.
+Spatial cellular organization patterns (COPs) within the tumor microenvironment (TME) evolve during tumor progression and influence patients' therapeutic responses. However, the cellular composition and functional potential of these multicellular structures during the progression of lung adenocarcinoma (LUAD) remain poorly understood. More importantly, the relationship between the evolution of malignant cells and the remodeling of the local immune microenvironment has not been thoroughly explored. In this study, we integrate spatial transcriptomics (ST) and single-cell RNA sequencing (scRNA-seq) data to characterize the local tumor and immunological landscape of tissue samples from eight patients with early-stage LUAD at various pathological stages. We identified eight major COPs that show distinct associations with pathological stages, local immune states, and clinical outcomes, including patient survival and therapy response. Notably, the infiltration of dysfunctional immune cells around malignant cells increases with pathological progression. Additionally, we explored cell-to-cell interactions between malignant cells and TME cells, revealing their role in remodeling the pro-tumor immune environment in invasive adenocarcinoma (IAC). Furthermore, integrating scRNA-seq, ST, and whole-exome sequencing (WES) data highlights the coupling between transcriptional alterations in malignant cells and the remodeling of the local microenvironment in IAC. This process leads to the establishment of a locally immune-suppressive environment, and our inferred copy number variations (CNVs) suggest that these genomic alterations drive the transcriptional evolution of malignant cells, contributing to the formation of a suppressive immune microenvironment in IAC. Overall, these findings enhance our understanding of the local microenvironment characteristics that contribute to LUAD progression and may help identify diagnostic markers and potential drug targets to inhibit invasive progression. 
 
 ![Analysis pipeline](https://github.com/haojiechen94/LUAD_COPs/blob/master/images/analysis_pipeline.png)
 Deconvolution is applied to quantify the cellular composition in each spot and then unsupervised clustering is performed to integrate spots from different slides and identify cellular organization patterns (COPs), COPs are visualized in two dimensional UMAP. Finally, COPs are mapping into the pathologically annotated areas in HE images, by this mean to link the COPs to spatial structures. TAT, tumor adjacent tissues, TLSs, tertiary lymphoid structures, LAs, lymphoid aggregates.
@@ -24,13 +24,16 @@ Processed Data have been deposited in Zenodo (https://zenodo.org/record/8417887)
 
 We are providing codes to reproduce our analysis results and tools for spatial transcriptomic analysis.
 
-1. Identifyiing_cellular_organization_patterns_by_integratiing_STs_and_scRNA_seq.R
-2. Infering_the_composition_of_STs_spots_using_scRNA_seq_characterized_immune_cells.R
-3. Computing_relative_celltype_enrichment_or_depletion_scores_in_each_COP.py
-4. Spatial_heatmap.py
-5. select_spots_on_HE.py
-6. plot_spots_on_HE.py
-7. Bubble_heatmap.py
+1. Part1_1_1_Identifying_cellular_organization_patterns_using_deconvolution_result_from_STs_and_scRNA_seq_data.R
+2. Part1_1_2_Visualizing_deconvolution_result_and_COPs_on_the_top_of_tissue_histology.py
+3. Part1_2_Linking_COPs_to_pathologically_annotated_areas_using_Fisher_exact_test.py
+4. Part1_3_Quantifying_the_local_immune_cell_infiltration_level_in_normal_epithelal_or_malignant_cell_enriched_spot_group_or_COP.py
+5. Part1_4_Identifying_significantly_enriched_pathways_in_each_COP.R
+6. Part6_1_Categorizing_epithelial_cells_into subpopulations_using_the_in_house_analytical_pipelines.R
+7. Part6_2_Inferring_CNVs_from _malignant_subtypes_scRNA_seq_data_using_inferCNV.R
+8. Part6_3_Mapping_malignant_cell_subpopulations_onto_STs_by_using_RCTD.R
+9. Part6_4_Analyzing_the_colocalization_relationship_between_malignant_cell_subpopulations_and_immune_cell_types.py
+10. Part7_Identifying_CNVs_from_tumor_normal_matched_WES_data.sh
 
 Citation: Haojie Chen et al. 2023. Spatiotemporal Profiling Unveiling the Cellular Organization Patterns and Local Protumoral Immune Microenvironment Remodeling in Early Lung Adenocarcinoma Progression. bioRxiv. https://doi.org/10.1101/2023.10.29.564580
 
